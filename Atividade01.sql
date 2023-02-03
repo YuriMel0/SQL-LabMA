@@ -22,3 +22,8 @@ WHERE Country = 'Brazil';
 SELECT COUNT(Country)
 FROM Customers
 WHERE Country = 'Brazil' or Country = 'France';
+
+/* 6 - Liste o cliente por ordem alfabética de países */
+SELECT CustomerName
+FROM Customers
+ORDER BY Country;
