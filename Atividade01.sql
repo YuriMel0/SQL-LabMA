@@ -12,3 +12,11 @@ WHERE City = 'Rio de Janeiro' or 'São Paulo';
 SELECT ContactName, Country
 FROM Customers
 WHERE ContactName LIKE 'A%';
+
+/* 4 - Quantos clientes há no Brasil? */
+SELECT COUNT(Country)
+FROM Customers
+WHERE Country = 'Brazil';
+
+
+
