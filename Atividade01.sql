@@ -18,5 +18,7 @@ SELECT COUNT(Country)
 FROM Customers
 WHERE Country = 'Brazil';
 
-
-
+/* 5 - Quantos clientes há no Brasil ou na França? */
+SELECT COUNT(Country)
+FROM Customers
+WHERE Country = 'Brazil' or Country = 'France';
