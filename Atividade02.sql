@@ -27,3 +27,16 @@ SELECT DATA_INGR, CPF, DATA_NASC, SEXO
 FROM at_mor
 WHERE DATA_NASC = '200806' AND DATA_INGR <> '999999'
 ORDER BY DATA_INGR, SEXO;
+
+/* 6 - Quais são as empresas presentes na tabela AT_MOR? */
+SELECT EMP
+FROM at_mor;
+
+/* 7 - Quais são os possíveis códigos de empresas na tabela AT_MOR? */
+SELECT COD_EMP
+FROM at_mor;
+
+/* 8 - Quais são os possíveis códigos de produto na tabela AT_MOR? */
+SELECT PRODUTO
+FROM at_mor;
+
