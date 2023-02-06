@@ -40,3 +40,7 @@ FROM at_mor;
 SELECT PRODUTO
 FROM at_mor;
 
+/* 9 - Quais são as possíveis coberturas na tabela AT_MOR? */
+SELECT COBERTURA
+FROM at_mor;
+
