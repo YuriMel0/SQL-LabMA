@@ -20,3 +20,10 @@ SELECT DATA_INGR, CPF, DATA_NASC, SEXO
 FROM at_mor
 WHERE DATA_NASC = '200806' AND DATA_INGR <> '999999'
 ORDER BY DATA_INGR;
+
+/* 5 - Quais são as Datas de Ingresso (diferentes de 999999), CPF, datas de nascimento e Sexo dos
+       segurados ativos nascidos em junho de 2008, ordenados por datas de ingresso e sexo? */
+SELECT DATA_INGR, CPF, DATA_NASC, SEXO
+FROM at_mor
+WHERE DATA_NASC = '200806' AND DATA_INGR <> '999999'
+ORDER BY DATA_INGR, SEXO;
