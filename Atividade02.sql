@@ -10,6 +10,6 @@ WHERE DATA_NASC = '201006';
 
 /* 3 - Quais são os Produto comprados por segurados ativos nascidos em
        junho de 2010 e maio de 2011 e em que empresa? */
-SELECT PRODUTO
+SELECT PRODUTO, COD_EMP
 FROM at_mor
 WHERE DATA_NASC = '201006' AND '201103';
