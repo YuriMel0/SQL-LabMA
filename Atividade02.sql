@@ -48,3 +48,8 @@ FROM at_mor;
 SELECT EMP
 FROM at_mor
 WHERE PRODUTO = 'VGA';
+
+/* 11 - Quais são os produtos da empresa “CDE” na tabela AT_MOR? */
+SELECT PRODUTO
+FROM at_mor
+WHERE EMP = 'CDE';
