@@ -53,3 +53,7 @@ WHERE PRODUTO = 'VGA';
 SELECT PRODUTO
 FROM at_mor
 WHERE EMP = 'CDE';
+
+/* 12 - Qual o segurado mais velho na tabela AT_MOR? */
+SELECT MIN(DATA_NASC), CPF
+FROM at_mor;
