@@ -44,3 +44,7 @@ FROM at_mor;
 SELECT COBERTURA
 FROM at_mor;
 
+/* 10 - Quais são as empresas que possuem produtos VGA na tabela AT_MOR? */
+SELECT EMP
+FROM at_mor
+WHERE PRODUTO = 'VGA';
