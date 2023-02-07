@@ -74,3 +74,9 @@ ORDER BY VALOR;
 /* 16 - Quantos registros de segurado ativo há na tabela AT_MOR? */
 SELECT COUNT(DATA_INGR)
 FROM at_mor;
+
+/* 17 - Quantos registros de segurado ativo, do ano de referência 2018, ingressaram no ano de 2018? */
+SELECT COUNT(DATA_INGR)
+FROM at_mor
+WHERE REF_INFO = '2018' AND DATA_INGR <> '999999';
+
