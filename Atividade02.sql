@@ -61,3 +61,7 @@ FROM at_mor;
 /* 13 - Qual o segurado mais novo na tabela AT_MOR? */
 SELECT MAX(DATA_NASC), CPF
 FROM at_mor;
+
+/* 14 - Qual a média de Valor de prêmio pago na tabela AT_MOR? */
+SELECT AVG(VALOR)
+FROM at_mor;
