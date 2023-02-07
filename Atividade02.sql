@@ -65,3 +65,8 @@ FROM at_mor;
 /* 14 - Qual a média de Valor de prêmio pago na tabela AT_MOR? */
 SELECT AVG(VALOR)
 FROM at_mor;
+
+/* 15 - Qual o rank de CPF por valor de prêmio pago no ano de referência 2018? */
+SELECT VALOR, CPF
+FROM at_mor
+ORDER BY VALOR;
