@@ -70,3 +70,8 @@ FROM at_mor;
 SELECT VALOR, CPF
 FROM at_mor
 ORDER BY VALOR;
+
+/* 16 - Quantos registros de segurado ativo há na tabela AT_MOR? */
+SELECT COUNT(DATA_INGR)
+FROM at_mor
+WHERE DATA_INGR <> '999999';
