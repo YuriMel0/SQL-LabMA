@@ -73,5 +73,4 @@ ORDER BY VALOR;
 
 /* 16 - Quantos registros de segurado ativo há na tabela AT_MOR? */
 SELECT COUNT(DATA_INGR)
-FROM at_mor
-WHERE DATA_INGR <> '999999';
+FROM at_mor;
