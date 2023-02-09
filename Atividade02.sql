@@ -76,12 +76,14 @@ SELECT COUNT(DATA_INGR)
 FROM at_mor;
 
 /* 17 - Quantos registros de segurado ativo, do ano de referência 2018, ingressaram no ano de 2018? */
-SELECT COUNT(DATA_INGR)
+SELECT COUNT()
 FROM at_mor
-WHERE REF_INFO = '2018' AND DATA_INGR <> '999999';
+WHERE REF_INFO = '2018' AND REF_INFO LIKE '%2018';
 
 /* 18 - Quantos registros de segurado ativo ingressaram antes do ano de 2018, ou,
         quantos registros em estoque inicial em 2018? */
 SELECT COUNT(DATA_INGR)
 FROM at_mor
-WHERE REF_INFO < '2008';
+WHERE REF_INFO < '';
+
+
