@@ -76,14 +76,37 @@ SELECT COUNT(DATA_INGR)
 FROM at_mor;
 
 /* 17 - Quantos registros de segurado ativo, do ano de referência 2018, ingressaram no ano de 2018? */
-SELECT COUNT()
+SELECT COUNT(DATA_INGR)
 FROM at_mor
 WHERE REF_INFO = '2018' AND REF_INFO LIKE '%2018';
 
 /* 18 - Quantos registros de segurado ativo ingressaram antes do ano de 2018, ou,
         quantos registros em estoque inicial em 2018? */
-SELECT COUNT(DATA_INGR)
-FROM at_mor
-WHERE REF_INFO < '';
 
+
+
+/* 19 - Um indivíduo, ou segurado, seria identificado pela tríade
+       (CPF, Data de nascimento, sexo). Quantos indivíduos ativos temos na base? */
+SELECT COUNT(*)
+FROM (  SELECT DISTINCT CPF, DATA_NASC, SEXO FROM at_mor);
+
+/* 20 - Quantos indivíduos ativos temos, agrupados e ordenados por ano de referência da informação? */
+SELECT COUNT(*)
+FROM at_mor
+GROUP BY REF_INFO
+ORDER BY REF_INFO;
+
+/* 21 - Quantos indivíduos ativos temos, agrupados por ano de referência da informação e empresa,
+        ordenado por ano de referência da informação?? */
+SELECT COUNT(EMP)
+FROM at_mor
+GROUP BY REF_INFO, EMP
+ORDER BY REF_INFO;   
+
+/* 22- Quantos indivíduos ativos temos, agrupados por ano de referência da informação e empresa e
+       produto, separados por sexo e ordenado por ano de referência da informação?? */
+SELECT REF_INFO, EMP, PRODUTO, SEXO, COUNT(*)
+FROM at_mor
+GROUP BY REF_INFO, EMP, PRODUTO, SEXO
+ORDER BY REF_INFO;
 
