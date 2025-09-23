@@ -1,45 +1,43 @@
-/* 1 - Liste as cidades (City) dos clientes que moram no “Brazil” (Country). */
+/* 1 - List the cities (City) of customers who live in "Brazil" (Country). */
 SELECT * FROM Customers
 WHERE Country = 'Brazil';
 
-/* 2 - Liste os clientes (CustomerName), e seus endereços (Address), das cidades de “São Paulo” ou do “Rio de Janeiro”.*/
+/* 2 - List the customers (CustomerName) and their addresses (Address) from the cities of "São Paulo" or "Rio de Janeiro". */
 SELECT CustomerName, Address
 FROM Customers
 WHERE City = 'Rio de Janeiro' or 'São Paulo';
 
-/* 3 - Liste o nome do contato (ContactName) iniciado pela letra ‘A’ e seu países. */
+/* 3 - List the contact name (ContactName) starting with the letter 'A' and their countries. */
 SELECT ContactName, Country
 FROM Customers
 WHERE ContactName LIKE 'A%';
 
-/* 4 - Quantos clientes há no Brasil? */
+/* 4 - How many customers are there in Brazil? */
 SELECT COUNT(Country)
 FROM Customers
 WHERE Country = 'Brazil';
 
-/* 5 - Quantos clientes há no Brasil ou na França? */
+/* 5 - How many customers are there in Brazil or France? */
 SELECT COUNT(Country)
 FROM Customers
 WHERE Country = 'Brazil' or Country = 'France';
 
-/* 6 - Liste o cliente por ordem alfabética de países */
+/* 6 - List customers in alphabetical order by country */
 SELECT CustomerName
 FROM Customers
 ORDER BY Country;
 
-/* 7 - Liste os países e suas quantidades de clientes. Depois de maneira ordenada pela quantidade de cliente do maior
-para o menor (isso é um rank de países por quantidade de clientes. Faça por cidade, depois pelas cidades brasileiras) */
+/* 7 - List countries and their number of customers. Then in order by number of customers from highest to lowest 
+   (this is a rank of countries by number of customers). Do it by city, then by Brazilian cities */
 SELECT COUNT(CustomerID), Country
 FROM Customers
 GROUP BY Country
 ORDER BY COUNT(CustomerID) DESC;
 
-
 SELECT COUNT(CustomerID), City
 FROM Customers
 GROUP BY City
 ORDER BY COUNT(CustomerID) DESC;
-
 
 SELECT COUNT(CustomerID), City
 FROM Customers
@@ -47,9 +45,8 @@ WHERE Country = 'Brazil'
 GROUP BY City
 ORDER BY COUNT(CustomerID) DESC;
 
-/* 8 - Liste a quantidade de clientes por cidade, em ordem alfabética, do Brasil ou da França.
-       Depois de maneira ordenada pela quantidade de cliente do maior para o menor.*/
-
+/* 8 - List the number of customers per city, in alphabetical order, from Brazil or France. 
+       Then ordered by number of customers from highest to lowest. */
 SELECT COUNT(CustomerID), City
 FROM Customers
 WHERE Country = 'Brazil' or Country = 'France'
@@ -62,14 +59,14 @@ WHERE Country = 'Brazil' or Country = 'France'
 GROUP BY City
 ORDER BY COUNT(CustomerID) DESC;
 
-/* 9 - Faça um rank de países, por quantidade de clientes, somente para aqueles com mais de 10 clientes.*/
+/* 9 - Rank countries by number of customers, only those with more than 10 customers. */
 SELECT COUNT(CustomerID), Country
 FROM Customers
 GROUP BY Country
 HAVING COUNT(CustomerID) > 10
 ORDER BY COUNT(CustomerID) DESC;
 
-/* 10 - Faça o rank por cidade, por quantidade de clientes, com mais de 3 clientes. */
+/* 10 - Rank cities by number of customers, only those with more than 3 customers. */
 SELECT COUNT(CustomerID), City
 FROM Customers
 GROUP BY City

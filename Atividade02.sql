@@ -1,112 +1,109 @@
-/* 1 - Quais são as informações dos segurados ativos nascidos em maio de 2011? */
+/* 1 - What are the information of active policyholders born in May 2011? */
 SELECT * 
 FROM at_mor
 WHERE DATA_NASC = '201103';
 
-/* 2 - Quais são os CPF e Sexo dos segurados ativos nascidos em junho de 2010? */
+/* 2 - What are the CPF and gender of active policyholders born in June 2010? */
 SELECT CPF, SEXO 
 FROM at_mor
 WHERE DATA_NASC = '201006';
 
-/* 3 - Quais são os Produto comprados por segurados ativos nascidos em
-       junho de 2010 e maio de 2011 e em que empresa? */
+/* 3 - What products were purchased by active policyholders born in 
+       June 2010 and May 2011, and by which company? */
 SELECT PRODUTO, COD_EMP
 FROM at_mor
 WHERE DATA_NASC = '201006' AND '201103';
 
-/* 4 - Quais são as Datas de Ingresso (diferentes de 999999), CPF, datas de nascimento
-       e Sexo dos segurados ativos nascidos em junho de 2008, ordenados por datas de ingresso? */
+/* 4 - What are the entry dates (different from 999999), CPF, birth dates, 
+       and gender of active policyholders born in June 2008, ordered by entry date? */
 SELECT DATA_INGR, CPF, DATA_NASC, SEXO
 FROM at_mor
 WHERE DATA_NASC = '200806' AND DATA_INGR <> '999999'
 ORDER BY DATA_INGR;
 
-/* 5 - Quais são as Datas de Ingresso (diferentes de 999999), CPF, datas de nascimento e Sexo dos
-       segurados ativos nascidos em junho de 2008, ordenados por datas de ingresso e sexo? */
+/* 5 - What are the entry dates (different from 999999), CPF, birth dates, 
+       and gender of active policyholders born in June 2008, ordered by entry date and gender? */
 SELECT DATA_INGR, CPF, DATA_NASC, SEXO
 FROM at_mor
 WHERE DATA_NASC = '200806' AND DATA_INGR <> '999999'
 ORDER BY DATA_INGR, SEXO;
 
-/* 6 - Quais são as empresas presentes na tabela AT_MOR? */
+/* 6 - What are the companies present in the AT_MOR table? */
 SELECT EMP
 FROM at_mor;
 
-/* 7 - Quais são os possíveis códigos de empresas na tabela AT_MOR? */
+/* 7 - What are the possible company codes in the AT_MOR table? */
 SELECT COD_EMP
 FROM at_mor;
 
-/* 8 - Quais são os possíveis códigos de produto na tabela AT_MOR? */
+/* 8 - What are the possible product codes in the AT_MOR table? */
 SELECT PRODUTO
 FROM at_mor;
 
-/* 9 - Quais são as possíveis coberturas na tabela AT_MOR? */
+/* 9 - What are the possible coverages in the AT_MOR table? */
 SELECT COBERTURA
 FROM at_mor;
 
-/* 10 - Quais são as empresas que possuem produtos VGA na tabela AT_MOR? */
+/* 10 - Which companies have VGA products in the AT_MOR table? */
 SELECT EMP
 FROM at_mor
 WHERE PRODUTO = 'VGA';
 
-/* 11 - Quais são os produtos da empresa “CDE” na tabela AT_MOR? */
+/* 11 - What are the products of company "CDE" in the AT_MOR table? */
 SELECT PRODUTO
 FROM at_mor
 WHERE EMP = 'CDE';
 
-/* 12 - Qual o segurado mais velho na tabela AT_MOR? */
+/* 12 - Who is the oldest policyholder in the AT_MOR table? */
 SELECT MIN(DATA_NASC), CPF
 FROM at_mor;
 
-/* 13 - Qual o segurado mais novo na tabela AT_MOR? */
+/* 13 - Who is the youngest policyholder in the AT_MOR table? */
 SELECT MAX(DATA_NASC), CPF
 FROM at_mor;
 
-/* 14 - Qual a média de Valor de prêmio pago na tabela AT_MOR? */
+/* 14 - What is the average premium value paid in the AT_MOR table? */
 SELECT AVG(VALOR)
 FROM at_mor;
 
-/* 15 - Qual o rank de CPF por valor de prêmio pago no ano de referência 2018? */
+/* 15 - What is the ranking of CPF by premium value paid in the reference year 2018? */
 SELECT VALOR, CPF
 FROM at_mor
 ORDER BY VALOR;
 
-/* 16 - Quantos registros de segurado ativo há na tabela AT_MOR? */
+/* 16 - How many active policyholder records are there in the AT_MOR table? */
 SELECT COUNT(DATA_INGR)
 FROM at_mor;
 
-/* 17 - Quantos registros de segurado ativo, do ano de referência 2018, ingressaram no ano de 2018? */
+/* 17 - How many active policyholder records from the reference year 2018 entered in 2018? */
 SELECT COUNT(DATA_INGR)
 FROM at_mor
 WHERE REF_INFO = '2018' AND REF_INFO LIKE '%2018';
 
-/* 18 - Quantos registros de segurado ativo ingressaram antes do ano de 2018, ou,
-        quantos registros em estoque inicial em 2018? */
+/* 18 - How many active policyholder records entered before 2018, or 
+        how many records were in the initial stock in 2018? */
 
-
-
-/* 19 - Um indivíduo, ou segurado, seria identificado pela tríade
-       (CPF, Data de nascimento, sexo). Quantos indivíduos ativos temos na base? */
+/* 19 - An individual, or policyholder, is identified by the triad 
+       (CPF, birth date, gender). How many active individuals are in the database? */
 SELECT COUNT(*)
 FROM (  SELECT DISTINCT CPF, DATA_NASC, SEXO FROM at_mor);
 
-/* 20 - Quantos indivíduos ativos temos, agrupados e ordenados por ano de referência da informação? */
+/* 20 - How many active individuals do we have, grouped and ordered by reference year of information? */
 SELECT COUNT(*)
 FROM at_mor
 GROUP BY REF_INFO
 ORDER BY REF_INFO;
 
-/* 21 - Quantos indivíduos ativos temos, agrupados por ano de referência da informação e empresa,
-        ordenado por ano de referência da informação?? */
+/* 21 - How many active individuals do we have, grouped by reference year of information and company, 
+        ordered by reference year of information? */
 SELECT COUNT(EMP)
 FROM at_mor
 GROUP BY REF_INFO, EMP
 ORDER BY REF_INFO;   
 
-/* 22- Quantos indivíduos ativos temos, agrupados por ano de referência da informação e empresa e
-       produto, separados por sexo e ordenado por ano de referência da informação?? */
+/* 22 - How many active individuals do we have, grouped by reference year of information, company, and product, 
+       separated by gender and ordered by reference year of information? */
 SELECT REF_INFO, EMP, PRODUTO, SEXO, COUNT(*)
 FROM at_mor
 GROUP BY REF_INFO, EMP, PRODUTO, SEXO
 ORDER BY REF_INFO;
-
